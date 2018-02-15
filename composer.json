@@ -1,0 +1,39 @@
+{
+    "name": "ocheretnyi/magento2-pos",
+    "license": "OSL-3.0",
+    "type": "magento2-module",
+    "homepage": "https://www.linkedin.com/in/iocheretnyi",
+    "description": "Magento 2 module assign POS to order(s)",
+    "keywords": [
+        "composer-installer",
+        "magento",
+        "Magento 2",
+        "order",
+        "POS",
+        "email"
+    ],
+    "authors": [
+        {
+            "name": "Igor Ocheretnyi (contractor)",
+            "email": "ocheretn123@gmail.com"
+        }
+    ],
+    "require": {
+        "magento/framework": "^100.1.0|^101.0.0",
+        "php": "~5.6.0|~7.0.0"
+    },
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Ocheretnyi\\Pos\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
