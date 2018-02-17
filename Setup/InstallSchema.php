@@ -16,19 +16,20 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 
 class InstallSchema implements InstallSchemaInterface
 {
+
     /**
-     * {@inheritdoc}
+     * @param SchemaSetupInterface   $setup
+     * @param ModuleContextInterface $context
+     *
+     * @return $this|void
+     * @throws \Zend_Db_Exception
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        $connection = $setup->getConnection();
-
-        $setup->startSetup();
-
         /*
          * Create table 'pos'
          */
-        $table = $connection->newTable(
+        $table = $setup->getConnection()->newTable(
             $setup->getTable('pos')
         )->addColumn(
             'pos_id',
@@ -70,12 +71,12 @@ class InstallSchema implements InstallSchemaInterface
             'POS Table'
         );
 
-        $connection->createTable($table);
+        $setup->getConnection()->createTable($table);
 
         /**
          * Add pos_id fields in order tables
          */
-        $connection->addColumn(
+        $setup->getConnection()->addColumn(
             $setup->getTable('sales_order'),
             'pos_id',
             [
@@ -85,7 +86,7 @@ class InstallSchema implements InstallSchemaInterface
             ]
         );
 
-        $connection->addColumn(
+        $setup->getConnection()->addColumn(
             $setup->getTable('sales_order_grid'),
             'pos_id',
             [
@@ -94,8 +95,5 @@ class InstallSchema implements InstallSchemaInterface
                 'comment'  => 'POS id'
             ]
         );
-
-        $setup->endSetup();
-        return $this;
     }
 }
