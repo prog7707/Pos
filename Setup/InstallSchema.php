@@ -60,7 +60,6 @@ class InstallSchema implements InstallSchemaInterface
             50,
             ['nullable' => false, 'default' => ''],
             'Support Email'
-
         )->addColumn(
             'description',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,

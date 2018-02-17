@@ -52,7 +52,6 @@ class Uninstall implements UninstallInterface
      */
     // @codingStandardsIgnoreStart
     public function uninstall(SchemaSetupInterface $setup, ModuleContextInterface $context)
-        // @codingStandardsIgnoreEnd
     {
         //remove tables
         if ($setup->tableExists('pos')) {

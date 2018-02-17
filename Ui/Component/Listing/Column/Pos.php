@@ -78,5 +78,4 @@ class Pos extends \Magento\Ui\Component\Listing\Columns\Column
     {
         return $this->posCollectionFactory->create()->getPosList();
     }
-
 }
